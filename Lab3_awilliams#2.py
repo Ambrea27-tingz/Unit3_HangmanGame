@@ -4,11 +4,12 @@
 
    Unit 3: Lab 3
 
-   Description: Import the file from project 1, do not copy and paste it.  Append 5 more items to the list.  Print the result.
+   Description: 
    """
 
 import random
 
+"""The general seven stages of the hangman game."""
 hangman_stages = [r"""  -----
                        |   |
                            |
@@ -68,8 +69,10 @@ hangman_stages = [r"""  -----
                   """
 ]
 
+"""asks the player to guess a random number between 1 and 15"""
 number_to_guess = random.randint(1,15) 
 
+"""len(hangman_stages) calculates the total # of stages in the hangman stages list"""
 max_wrong_guesses = len(hangman_stages)- 1
 
 wrong_guesses = 0
@@ -77,6 +80,7 @@ wrong_guesses = 0
 print('Come on and play Guess The Number - Hangman Game!')
 print('Guess a number between 1 and 15.')
 
+"""the loop statement (while) keeps the code going as long as the condition remains true"""
 while wrong_guesses < max_wrong_guesses:
     try:
         guess = int(input("Enter your guess: "))
