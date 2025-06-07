@@ -4,7 +4,8 @@
 
    Unit 3: Lab 3
 
-   Description: 
+   Description: Guess The Number / Hangman Game. A program that asks the player to guess a random number between 1 and 15. 
+   If the guess is incorrect, the next body part is added to the hangman.  
    """
 
 import random
