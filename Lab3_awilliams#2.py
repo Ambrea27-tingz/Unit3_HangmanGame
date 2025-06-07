@@ -9,7 +9,7 @@
 
 import random
 
-hangman_stages = ["""  -----
+hangman_stages = [r"""  -----
                        |   |
                            |
                            |
@@ -17,7 +17,7 @@ hangman_stages = ["""  -----
                            |
                    ---------
                    """,
-                  """ -----
+                  r""" -----
                       |   |
                       O   |
                           |
@@ -25,7 +25,7 @@ hangman_stages = ["""  -----
                           |
                   ---------
                   """,
-                  """ -----
+                  r""" -----
                       |   |
                       O   |
                       |   |
@@ -33,7 +33,7 @@ hangman_stages = ["""  -----
                           |
                   --------- 
                   """,
-                  """ -----
+                  r""" -----
                       |   |
                       O   |
                      /|   |
@@ -41,7 +41,7 @@ hangman_stages = ["""  -----
                           |
                   ---------
                   """,
-                  """ -----
+                  r""" -----
                       |   |
                       O   |
                      /|\  |
@@ -49,7 +49,7 @@ hangman_stages = ["""  -----
                           |
                   ---------
                   """,
-                  """
+                  r"""
                       -----
                       |   |
                       O   |
@@ -58,7 +58,7 @@ hangman_stages = ["""  -----
                           |
                   ---------
                   """,
-                  """ -----
+                  r""" -----
                       |   |
                       O   |
                      /|\  |
@@ -78,4 +78,21 @@ print('Come on and play Guess The Number - Hangman Game!')
 print('Guess a number between 1 and 15.')
 
 while wrong_guesses < max_wrong_guesses:
+    try:
+        guess = int(input("Enter your guess: "))
+    except ValueError:
+        print("Invalid input! Please enter a number between 1 and 15.")
+        continue
+    
+    if guess == number_to_guess:
+        print(f"Congratulations! You've guessed the number {number_to_guess}. You win!")
+        break
+    else:
+        wrong_guesses += 1
+        print(f"Wrong guess! You have {max_wrong_guesses - wrong_guesses} guesses left.")
+        print(hangman_stages[wrong_guesses])
 
+
+if wrong_guesses == max_wrong_guesses:
+    print("Game over! You've been hanged.")
+    print(f"The correct number was {number_to_guess}.")
